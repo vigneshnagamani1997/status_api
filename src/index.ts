@@ -24,8 +24,8 @@ app.use(bodyParser.json())
 
 const server = http.createServer(app);
 new databaseConnection();
-server.listen(3000, () => {
-  console.info('Server running on http://127.0.0.1:3000/');
+server.listen((process.env.PORT || 3000), () => {
+  console.info('Server running on '+app.get('port'));
 });
 
 

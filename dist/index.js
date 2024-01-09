@@ -48,8 +48,8 @@ app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
 const server = http_1.default.createServer(app);
 new dbconfig_1.databaseConnection();
-server.listen(3000, () => {
-    console.info('Server running on http://127.0.0.1:3000/');
+server.listen((process.env.PORT || 3000), () => {
+    console.info('Server running on ' + app.get('port'));
 });
 app.use('/', (0, routers_1.default)());
 //# sourceMappingURL=index.js.map
