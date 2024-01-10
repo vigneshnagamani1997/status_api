@@ -7,7 +7,7 @@ const authRepositoryObj = new authRepository();
 
 export const login = async (req: express.Request, res: express.Response) => {
   try {
-    const { error, value } = loginValidator(req.body);
+    const { error, value } = loginValidator(req.query);
     if (!error) {
       const respObj: responseMsgType = await authRepositoryObj.login(value);
       return succeed(res, respObj);
@@ -26,7 +26,7 @@ export const login = async (req: express.Request, res: express.Response) => {
 };
 export const register = async (req: express.Request, res: express.Response) => {
   try {
-    const { error, value } = registerValidator(req.body);
+    const { error, value } = registerValidator(req.query);
     if (!error) {
       const respObj: responseMsgType = await authRepositoryObj.register(value);
       return succeed(res, respObj);
@@ -45,7 +45,7 @@ export const register = async (req: express.Request, res: express.Response) => {
 
 export const finduser = async (req: express.Request, res: express.Response) => {
   try {
-    const { error, value } = finduserValidator(req.body);
+    const { error, value } = finduserValidator(req.query);
     if (!error) {
       const respObj: responseMsgType = await authRepositoryObj.finduser(value);
       return succeed(res, respObj);
@@ -64,7 +64,7 @@ export const finduser = async (req: express.Request, res: express.Response) => {
 
 export const followunfollow = async (req: express.Request, res: express.Response) => {
   try {
-    const { error, value } = followunfollowValidator(req.body);
+    const { error, value } = followunfollowValidator(req.query);
     if (!error) {
       const respObj: responseMsgType = await authRepositoryObj.followunfollow(value);
       return succeed(res, respObj);

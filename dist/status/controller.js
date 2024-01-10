@@ -29,7 +29,7 @@ const uploadstatus = async (req, res) => {
 exports.uploadstatus = uploadstatus;
 const statusMetadetails = async (req, res) => {
     try {
-        const { error, value } = (0, validator_1.statusMetadetailsValidator)(req.body);
+        const { error, value } = (0, validator_1.statusMetadetailsValidator)(req.query);
         if (!error) {
             const respObj = await uploadstatusRepositoryObj.statusMetadetails(value);
             return (0, resolver_1.succeed)(res, respObj);
@@ -50,7 +50,7 @@ const statusMetadetails = async (req, res) => {
 exports.statusMetadetails = statusMetadetails;
 const viewstatus = async (req, res) => {
     try {
-        const { error, value } = (0, validator_1.viewstatusValidator)(req.body);
+        const { error, value } = (0, validator_1.viewstatusValidator)(req.query);
         if (!error) {
             const respObj = await uploadstatusRepositoryObj.viewstatusdetails(value);
             return (0, resolver_1.succeed)(res, respObj);
@@ -71,7 +71,7 @@ const viewstatus = async (req, res) => {
 exports.viewstatus = viewstatus;
 const likeStatus = async (req, res) => {
     try {
-        const { error, value } = (0, validator_1.likeStatusValidator)(req.body);
+        const { error, value } = (0, validator_1.likeStatusValidator)(req.query);
         if (!error) {
             const respObj = await uploadstatusRepositoryObj.likeStatusdetails(value);
             return (0, resolver_1.succeed)(res, respObj);
@@ -92,7 +92,7 @@ const likeStatus = async (req, res) => {
 exports.likeStatus = likeStatus;
 const commentStatus = async (req, res) => {
     try {
-        const { error, value } = (0, validator_1.commentStatusValidator)(req.body);
+        const { error, value } = (0, validator_1.commentStatusValidator)(req.query);
         if (!error) {
             const respObj = await uploadstatusRepositoryObj.commentStatus(value);
             return (0, resolver_1.succeed)(res, respObj);
