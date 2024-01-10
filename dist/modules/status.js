@@ -27,7 +27,7 @@ const getStatusById = (id) => exports.statusModel.findById(id);
 exports.getStatusById = getStatusById;
 const getStatusMetaDataById = (id) => exports.statusModel.findById({ _id: id }, { likesCount: { $size: "$likes" }, commentsCount: { $size: "$comments" } });
 exports.getStatusMetaDataById = getStatusMetaDataById;
-const getStatusByposted_by = (arr) => exports.statusModel.find({ posted_by: { $all: [arr] } });
+const getStatusByposted_by = (arr) => exports.statusModel.find({ posted_by: { $all: arr } });
 exports.getStatusByposted_by = getStatusByposted_by;
 const addLike = (status_id, user_id) => exports.statusModel.updateOne({ _id: status_id }, { $addToSet: { likes: user_id } });
 exports.addLike = addLike;

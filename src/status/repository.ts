@@ -110,9 +110,17 @@ export class uploadstatusRepository {
             const { viwed_by } = payload;
             try {
                 const user = await getUserByusername(viwed_by);
-                const status = await getStatusByposted_by(user.following);
-                respObj.data = status;
-                resolved(respObj);
+                if(user) {
+                    const status = await getStatusByposted_by(user.following);
+                    respObj.data = status;
+                    resolved(respObj);    
+                } else  {
+                    respObj.data = {
+                        acknowledged: 'not found',
+                        msg: 'user Not found'
+                    };
+                    resolved(respObj);    
+                }
             }
             catch (error) {
                 respObj.status = 'error';
